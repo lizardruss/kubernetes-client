@@ -1,6 +1,6 @@
 'use strict'
 
-const { convertKubeconfig } = require('./config')
+const { convertKubeconfig } = require('../config')
 const deprecate = require('depd')('kubernetes-client')
 const JSONStream = require('json-stream')
 const pump = require('pump')
@@ -17,7 +17,7 @@ const WebSocket = require('ws')
  */
 function refreshAuth (type, config) {
   return new Promise((resolve, reject) => {
-    const provider = require(`./auth-providers/${type}.js`)
+    const provider = require(`../auth-providers/${type}.js`)
     provider.refresh(config)
       .then(result => {
         const auth = {

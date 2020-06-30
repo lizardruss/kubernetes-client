@@ -58,8 +58,8 @@ describe('Config (deprecated)', () => {
 
   describe('.loadKubeconfig', () => {
     const cfgPaths = [
-      './backends/request/config.test/fixtures/kube-fixture.yml',
-      './backends/request/config.test/fixtures/kube-fixture-two.yml'
+      './backends/config.test/fixtures/kube-fixture.yml',
+      './backends/config.test/fixtures/kube-fixture-two.yml'
     ]
 
     it('supports multiple config files', () => {
@@ -522,14 +522,14 @@ describe('Config (deprecated)', () => {
     })
 
     it('load kubeconfig from provided path', () => {
-      const args = config.fromKubeconfig('./backends/request/config.test/fixtures/kube-fixture.yml')
+      const args = config.fromKubeconfig('./backends/config.test/fixtures/kube-fixture.yml')
       expect(args.url).equals('https://192.168.42.121:8443')
     })
 
     it('load kubeconfig from provided array of paths', () => {
       const cfgPaths = [
-        './backends/request/config.test/fixtures/kube-fixture.yml',
-        './backends/request/config.test/fixtures/kube-fixture-two.yml'
+        './backends/config.test/fixtures/kube-fixture.yml',
+        './backends/config.test/fixtures/kube-fixture-two.yml'
       ]
       const args = config.fromKubeconfig(cfgPaths)
       expect(args.url).equals('https://192.168.42.121:8443')
